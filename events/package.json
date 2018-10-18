@@ -1,0 +1,14 @@
+{
+  "name": "event-learn",
+  "version": "1.0.0",
+  "description": "events 是 Node.js 最重要的模块，没有之一，原因是 Node.js 本身架构就是事件式\r 的，而它提供了׬一的接口，所以܁ Node.js 事件编程的基础。 events 模块不仅用于用代码与 Node.js 下层事件环的交互，还几被所有的模块.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "events": "^3.0.0"
+  }
+}

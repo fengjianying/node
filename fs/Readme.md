@@ -3,15 +3,6 @@
 
 fs 模块是文件操作的࠯装，它提供了文件的读取、写入、更改、删除、遍历目录、链接等POSIX文件系统操作。与其他模块不同的是， fs 模块中所有的操作都提供了异步的和同步的两个版本，例如读取文件内容的函数有异步的 fs.readFile() 和同步的fs.readFileSync()。
 
-## readFile
-
-fs.readFile(filename,[encoding],[callback(err,data)])中简单的读取文件函数,它接受一个必选参数 filename，表示要读取的文件名。第二个个参数 encoding
-是可选的，表示文件的字符编码。 callback 是回调函数，用于接收文件的内容。如果不指定 encoding，则 callback 就是第二个参数。回调函数提供两个参数 err 和 data，err 表示有没有错误发生， data 是文件内容。如果指定了 encoding， data 是一个解析后的字符串，否则 data 将会是以 Buffer 形式表示的二进制数据。
-
-## readFileSync
-
-它是 fs.readFile 同步的版本。它接受的参数和 fs.readFile 相同，而读取到的文件内容会以函数ᤄ回值的形式ᤄ回。如果有错误发生， fs 将会抛出异常，你需要使用 try 和 catch 捕捉异常并处理异常。
-
 ## open
 
 fs.open(path, flags, [mode], [callback(err, fd)])是 POSIX open 函数的封装，与 C 语言标准库中的 fopen 函数类似。它接受两个必选参数，path 为文件的路径，flags 可以是以下值。
@@ -23,9 +14,19 @@ fs.open(path, flags, [mode], [callback(err, fd)])是 POSIX open 函数的封装�
 * 'a' : 以追加模式打开文件。如果文件不存在，则会被创建。
 * 'a+' : 以读取和追加模式打开文件。如果文件不存在，则会被创建。
 
+ callback：回调函数；有两个参数：err fd  fd表示指定的文件；
+
 ## read
 
 fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead,buffer)])是 POSIX read 函数的封装，它比 fs.readFile 提供了更底层的接口。fs.read的功能是从指定的文件中描述符 fd 中读取数据并写入 buffer 指向的缓冲区对象。 offset 是 buffer 的写入偏移量。 length 是要从文件中读取的字节数。 position 是文件读取的起始位置，如果 position 的值为 null，则会从当前文件指针的位置读取。回调函数传递bytesRead 和 buffer，分别表示读取的字节数和缓冲区对象。
+
+## readFile
+
+fs.readFile(filename,[encoding],[callback(err,data)])中简单的读取文件函数,它接受一个必选参数 filename，表示要读取的文件名。第二个个参数 encoding是可选的，表示文件的字符编码。 callback 是回调函数，用于接收文件的内容。如果不指定 encoding，则 callback 就是第二个参数。回调函数提供两个参数 err 和 data，err 表示有没有错误发生， data 是文件内容。如果指定了 encoding， data 是一个解析后的字符串，否则 data 将会是以 Buffer 形式表示的二进制数据。
+
+## readFileSync
+
+它是 fs.readFile 同步的版本。它接受的参数和 fs.readFile 相同，而读取到的文件内容会以函数ᤄ回值的形式ᤄ回。如果有错误发生， fs 将会抛出异常，你需要使用 try 和 catch 捕捉异常并处理异常。
 
 ## state
 
