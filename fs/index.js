@@ -1,4 +1,12 @@
 const fs = require('fs');
+// stat检测文件是否存在
+fs.stat("Readme.md",function(err,state){
+    if(err){
+        console.log(err)
+    }else{
+        console.log(state);
+    }
+})
 //open+read读取文件
 fs.open('Readme.md','r',function(error,fd){
     if(error){
@@ -15,5 +23,70 @@ fs.open('Readme.md','r',function(error,fd){
                 console.log(buffer);
             }
         })
+    }
+})
+//open+readFile读取文件
+fs.open('writeFileDemo.txt','r',function(error,fd){
+    if(error){
+        console.log(error)
+        return
+    }else{
+        //文件名fd
+        fs.readFile(fd,'utf-8',function(err,data){
+            if(err){
+                console.log(err);
+                return
+            }else{
+                console.log(data);
+            }
+        })
+    }
+})
+//writeFile文件的写入
+fs.writeFile('writeFileDemo.txt','node的fs.writeFile使用',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('文件已写入')
+    }
+})
+//appendFile对文件内容追加
+fs.appendFile('writeFileDemo.txt',' 我是追加的内容','utf-8',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('追加成功')
+    }
+})
+//mkdir创建文件夹
+fs.mkdir('emptyFile',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('创建文件夹成功')
+    }
+})
+//rename重命名文件
+fs.rename('emptyFile','reNameFile',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('文件名修改成功')
+    }
+})
+// rmdir删除空的文件夹
+fs.rmdir('reNameFile',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('删除文件夹成功')
+    }
+})
+ //readdir读取文件信息
+ fs.readdir('emptyFile',function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('读取文件夹成功')
     }
 })

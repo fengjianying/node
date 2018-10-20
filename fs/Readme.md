@@ -26,15 +26,15 @@ fs.readFile(filename,[encoding],[callback(err,data)])中简单的读取文件函
 
 ## readFileSync
 
-它是 fs.readFile 同步的版本。它接受的参数和 fs.readFile 相同，而读取到的文件内容会以函数ᤄ回值的形式ᤄ回。如果有错误发生， fs 将会抛出异常，你需要使用 try 和 catch 捕捉异常并处理异常。
+它是 fs.readFile 同步的版本。它接受的参数和 fs.readFile 相同，而读取到的文件内容会以函数返回值的形式返回。如果有错误发生， fs 将会抛出异常，你需要使用 try 和 catch 捕捉异常并处理异常。
 
-## state
+## stat
 
 fs.stat(path,callback)常用于检测文件的状态，可以借此来判断某个文件是否存在。path参数传入该文件的绝对物理路径，该callback回调函数有两个参数err和stats。其中err为错误信息参数，stats为一个文件状态对象.
 
 ## writeFile
 
-fs.writeFile(path,data[,options],callback)可用于往指定文件当中写入内容，该内容会覆盖文件当中原有的内容。若传入的文件路径当中的文件不存在，则先完成该文件的穿件，再往里面写入指定内容。path参数为该文件的绝对物理路径，data为需要写入该文件当中的数据内容，其中options参数可选，可以传入编码格式，若不传则默认为utf8。callback回调参数当中只有一个错误信息参数err，一般在写入失败时触发调用。
+fs.writeFile(path,data[,options],callback)可用于往指定文件当中写入内容，该内容会覆盖文件当中原有的内容。若传入的文件路径当中的文件不存在，则先完成该文件的创建，再往里面写入指定内容。path参数为该文件的绝对物理路径，data为需要写入该文件当中的数据内容，其中options参数可选，可以传入编码格式，若不传则默认为utf8。callback回调参数当中只有一个错误信息参数err，一般在写入失败时触发调用。
 
 ## appendFile
 
