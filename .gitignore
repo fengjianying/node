@@ -2,3 +2,5 @@
 /events/node_modules
 /fs/node_modules
 /fs/writeFileDemo.txt
+/http/node_modules
+/express/first-express/node_modules

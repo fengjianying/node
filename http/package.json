@@ -1,0 +1,15 @@
+{
+  "name": "http-learn",
+  "version": "1.0.0",
+  "description": "http-learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "url": "^0.11.0"
+  }
+}
